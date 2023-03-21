@@ -13,3 +13,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_botaoTestar_clicked()
+{
+    try {
+        Pedro::LLSE lista;
+
+    } catch (...) {
+        QMessageBox::critical(this, "ERRO ", "erro de teste");
+    }
+}
+
