@@ -36,4 +36,30 @@ namespace Pedro{
         quantidadeElementos--;
         return valor;
     }
+    int LLSE::acessarInicio()const
+    {
+        if (estaVazia())
+        {
+            throw QString("Lista esta vazia - acessarInicio");
+        }
+        return (inicio->getDado());
+    }
+    QString LLSE::obterDadosLLSE()const
+    {
+        NO* aux;
+        aux = inicio;
+        QString saida = "";
+        for (int i = 0; i < quantidadeElementos; i++)
+        {
+            if (i == quantidadeElementos - 1)
+            {
+                saida += "|" + QString::number(aux->getDado()) + "|\t";
+            }else
+            {
+                saida += "|" + QString::number(aux->getDado()) + "| \t->\t";
+            }
+            aux = aux->getProximo();
+        }
+        return saida;
+    }
 }

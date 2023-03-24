@@ -18,9 +18,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_botaoTestar_clicked();
+
+    void on_pushButton_InserirInicio_clicked();
+
+    void on_pushButton_AcessarInicio_clicked();
+
+    void on_pushButton_RetirarInicio_clicked();
 
 private:
     Ui::MainWindow *ui;
+    Pedro::LLSE lista;
 };
 #endif // MAINWINDOW_H

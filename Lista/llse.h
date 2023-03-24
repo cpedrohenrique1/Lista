@@ -14,6 +14,8 @@ namespace Pedro{
         bool estaVazia()const;
         void inserirInicio(int elemento);
         int retirarInicio();
+        int acessarInicio()const;
+        QString obterDadosLLSE()const;
     };
 }
 
