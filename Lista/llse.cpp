@@ -28,11 +28,25 @@ namespace Pedro
     {
         try
         {
-
+            if (estaVazia())
+            {
+                inserirInicio(elemento);
+            }
+            else
+            {
+                NO *aux = new NO(elemento);
+                NO *aux2 = inicio;
+                for (int i = 0; i < quantidadeElementos - 1; i++)
+                {
+                    aux2 = aux2->getProximo();
+                }
+                aux2->setProximo(aux);
+                quantidadeElementos++;
+            }
         }
-        catch(std::bad_alloc &erro)
+        catch (std::bad_alloc &erro)
         {
-
+            throw QString("No nao criado - inserirFinal");
         }
     }
 
@@ -58,23 +72,24 @@ namespace Pedro
             throw QString("Lista esta vazia - retirarFinal");
         }
         NO *aux = inicio;
-
-        for (int i = 1; i < quantidadeElementos; i++)
-        {
-            aux = aux->getProximo();
-        }
-        int valor = aux->getDado();
-        aux->setDado(0);
-        aux = inicio;
         for (int i = 0; i < quantidadeElementos - 2; i++)
         {
             aux = aux->getProximo();
         }
-        aux->setProximo(nullptr);
-        delete aux;
-        aux = nullptr;
-        quantidadeElementos--;
-        return valor;
+        NO *aux2 = aux->getProximo();
+        if (aux2)
+        {
+            int valor = aux2->getDado();
+            delete aux2;
+            aux2 = nullptr;
+            aux->setProximo(nullptr);
+            quantidadeElementos--;
+            return valor;
+        }
+        else
+        {
+            return retirarInicio();
+        }
     }
 
     int LLSE::acessarInicio() const
@@ -91,8 +106,8 @@ namespace Pedro
         {
             throw QString("Lista esta vazia - acessarFinal");
         }
-        NO* aux = inicio;
-        for (int i = 1; i < quantidadeElementos; i++)
+        NO *aux = inicio;
+        for (int i = 0; i < quantidadeElementos - 1; i++)
         {
             aux = aux->getProximo();
         }

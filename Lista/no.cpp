@@ -1,17 +1,13 @@
 #include "no.h"
 
-Pedro::NO::NO():
-    dado(0),
-    proximo(0)
+Pedro::NO::NO() : dado(0),
+                  proximo(0)
 {
-
 }
 
-Pedro::NO::NO(int elemento):
-    dado(elemento),
-    proximo(0)
+Pedro::NO::NO(int elemento) : dado(elemento),
+                              proximo(0)
 {
-    
 }
 
 int Pedro::NO::getDado() const
@@ -33,5 +29,3 @@ void Pedro::NO::setProximo(NO *newProximo)
 {
     proximo = newProximo;
 }
-
-
