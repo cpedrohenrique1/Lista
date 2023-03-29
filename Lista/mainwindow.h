@@ -25,6 +25,12 @@ private slots:
 
     void on_pushButton_RetirarInicio_clicked();
 
+    void on_pushButton_inserirFinal_clicked();
+
+    void on_pushButton_acessarFinal_clicked();
+
+    void on_pushButton_retirarFinal_clicked();
+
 private:
     Ui::MainWindow *ui;
     Pedro::LLSE lista;

@@ -13,8 +13,11 @@ namespace Pedro{
         LLSE();
         bool estaVazia()const;
         void inserirInicio(int elemento);
+        void inserirFinal(int elemento);
         int retirarInicio();
+        int retirarFinal();
         int acessarInicio()const;
+        int acessarFinal()const;
         QString obterDadosLLSE()const;
     };
 }
