@@ -42,6 +42,15 @@ void MainWindow::on_pushButton_AcessarInicio_clicked()
     }
 }
 
+void MainWindow::on_pushButton_acessarFinal_clicked()
+{
+    try {
+        ui->lineEdit_InputValor->setText(QString::number(lista.acessarFinal()));
+    } catch (QString &erro) {
+        QMessageBox::critical(this, "Erro ", erro);
+    }
+}
+
 
 void MainWindow::on_pushButton_RetirarInicio_clicked()
 {
@@ -72,19 +81,13 @@ void MainWindow::on_pushButton_inserirFinal_clicked()
 }
 
 
-void MainWindow::on_pushButton_acessarFinal_clicked()
+void MainWindow::on_pushButton_retirarFinal_clicked()
 {
     try {
         ui->lineEdit_InputValor->setText(QString::number(lista.retirarFinal()));
         ui->saida->setText(lista.obterDadosLLSE());
-    } catch (QString &erro) {
+    } catch(QString &erro){
         QMessageBox::critical(this, "Erro ", erro);
     }
-}
-
-
-void MainWindow::on_pushButton_retirarFinal_clicked()
-{
-
 }
 

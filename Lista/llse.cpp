@@ -28,7 +28,7 @@ namespace Pedro
     {
         try
         {
-            
+
         }
         catch(std::bad_alloc &erro)
         {
@@ -55,21 +55,20 @@ namespace Pedro
     {
         if (estaVazia())
         {
-            throw QString("Lista esta vazia - retirarInicio");
+            throw QString("Lista esta vazia - retirarFinal");
         }
         NO *aux = inicio;
 
-        for (int i = 0; i < quantidadeElementos; i++)
+        for (int i = 1; i < quantidadeElementos; i++)
         {
-            aux->getProximo();
+            aux = aux->getProximo();
         }
         int valor = aux->getDado();
         aux->setDado(0);
-        aux->setProximo(nullptr);
         aux = inicio;
-        for (int i = 0; i < quantidadeElementos - 1; i++)
+        for (int i = 0; i < quantidadeElementos - 2; i++)
         {
-            aux->getProximo();
+            aux = aux->getProximo();
         }
         aux->setProximo(nullptr);
         delete aux;
@@ -88,7 +87,16 @@ namespace Pedro
     }
     int LLSE::acessarFinal() const
     {
-        return 0;
+        if (estaVazia())
+        {
+            throw QString("Lista esta vazia - acessarFinal");
+        }
+        NO* aux = inicio;
+        for (int i = 1; i < quantidadeElementos; i++)
+        {
+            aux = aux->getProximo();
+        }
+        return aux->getDado();
     }
     QString LLSE::obterDadosLLSE() const
     {
