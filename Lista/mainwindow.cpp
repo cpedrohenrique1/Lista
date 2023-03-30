@@ -25,10 +25,10 @@ void MainWindow::on_pushButton_InserirInicio_clicked()
         {
             throw QString("Numero tem que ser inteiro - InserirInicio");
         }
-        QString caracteres = ui->lineEdit_InputValor->text();
-        for (int i = 0; i < caracteres.size(); i++)
+        QString caracter = ui->lineEdit_InputValor->text();
+        for (int i = 0; i < caracter.size(); i++)
         {
-            if (caracteres[i] < '0' || caracteres[i] > '9')
+            if ((caracter[i] < '0' || caracter[i] > '9') && caracter[i] != '-')
             {
                 throw QString("So podem ser inseridos numeros inteiros - inserirInicio");
             }
@@ -55,12 +55,12 @@ void MainWindow::on_pushButton_inserirFinal_clicked()
         {
             throw QString("Numero tem que ser inteiro - InserirFinal");
         }
-        QString caracteres = ui->lineEdit_InputValor->text();
-        for (int i = 0; i < caracteres.size(); i++)
+        QString caracter = ui->lineEdit_InputValor->text();
+        for (int i = 0; i < caracter.size(); i++)
         {
-            if (caracteres[i] < '0' || caracteres[i] > '9')
+            if ((caracter[i] < '0' || caracter[i] > '9') && caracter[i] != '-')
             {
-                throw QString("So podem ser inseridos numeros inteiros - inserirInicio");
+                throw QString("So podem ser inseridos numeros inteiros - inserirFinal");
             }
         }
         lista.inserirFinal(ui->lineEdit_InputValor->text().toInt());
