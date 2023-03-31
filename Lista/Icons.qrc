@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/imgs">
+        <file>Icons/insert.png</file>
+        <file>Icons/thumbMouse.jpg</file>
+        <file>Icons/retirar.png</file>
+    </qresource>
+</RCC>
