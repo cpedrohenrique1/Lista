@@ -140,7 +140,7 @@ namespace Pedro
             }
             aux = aux->getProximo();
         }
-        if (saida == "")
+        if (estaVazia())
         {
             saida = "(Lista esta vazia)";
         }
