@@ -17,6 +17,10 @@ namespace Pedro
             quantidadeElementos++;
             aux->setProximo(inicio);
             inicio = aux;
+            if (aux == nullptr)
+            {
+                delete aux;
+            }
         }
         catch (std::bad_alloc &erro)
         {
@@ -88,6 +92,7 @@ namespace Pedro
         }
         else
         {
+            delete aux2;
             return retirarInicio();
         }
     }
@@ -113,6 +118,11 @@ namespace Pedro
         }
         return aux->getDado();
     }
+
+    int LLSE::getQuantidadeElementos() const
+    {
+        return quantidadeElementos;
+    }
     QString LLSE::obterDadosLLSE() const
     {
         NO *aux;
@@ -126,9 +136,13 @@ namespace Pedro
             }
             else
             {
-                saida += "|" + QString::number(aux->getDado()) + "|\t->\t";
+                saida += "|" + QString::number(aux->getDado()) + "| -> ";
             }
             aux = aux->getProximo();
+        }
+        if (saida == "")
+        {
+            saida = "(Lista esta vazia)";
         }
         return saida;
     }

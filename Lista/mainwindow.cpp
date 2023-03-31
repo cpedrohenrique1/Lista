@@ -36,6 +36,7 @@ void MainWindow::on_pushButton_InserirInicio_clicked()
         lista.inserirInicio(ui->lineEdit_InputValor->text().toInt());
         ui->lineEdit_InputValor->clear();
         ui->saida->setText(lista.obterDadosLLSE());
+        ui->lineEdit_OutputElementos->setText(QString::number(lista.getQuantidadeElementos()));
     }
     catch (QString &erro)
     {
@@ -66,6 +67,7 @@ void MainWindow::on_pushButton_inserirFinal_clicked()
         lista.inserirFinal(ui->lineEdit_InputValor->text().toInt());
         ui->lineEdit_InputValor->clear();
         ui->saida->setText(lista.obterDadosLLSE());
+        ui->lineEdit_OutputElementos->setText(QString::number(lista.getQuantidadeElementos()));
     }
     catch (QString &erro)
     {
@@ -103,6 +105,7 @@ void MainWindow::on_pushButton_RetirarInicio_clicked()
     {
         ui->lineEdit_InputValor->setText(QString::number(lista.retirarInicio()));
         ui->saida->setText(lista.obterDadosLLSE());
+        ui->lineEdit_OutputElementos->setText(QString::number(lista.getQuantidadeElementos()));
     }
     catch (QString &erro)
     {
@@ -116,6 +119,7 @@ void MainWindow::on_pushButton_retirarFinal_clicked()
     {
         ui->lineEdit_InputValor->setText(QString::number(lista.retirarFinal()));
         ui->saida->setText(lista.obterDadosLLSE());
+        ui->lineEdit_OutputElementos->setText(QString::number(lista.getQuantidadeElementos()));
     }
     catch (QString &erro)
     {

@@ -20,6 +20,7 @@ namespace Pedro
         int retirarFinal();
         int acessarInicio() const;
         int acessarFinal() const;
+        int getQuantidadeElementos()const;
         QString obterDadosLLSE() const;
     };
 }
