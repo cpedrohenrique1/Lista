@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
+      <y>230</y>
       <width>101</width>
       <height>18</height>
      </rect>
@@ -30,7 +30,7 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>190</x>
       <y>120</y>
       <width>191</width>
       <height>27</height>
@@ -69,9 +69,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>200</y>
+      <y>250</y>
       <width>731</width>
-      <height>211</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -273,7 +273,7 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>10</x>
       <y>150</y>
       <width>381</width>
       <height>27</height>
@@ -311,6 +311,53 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>120</y>
+      <width>236</width>
+      <height>113</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;Posição:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_posicao"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_inserirPosicao">
+       <property name="text">
+        <string>Inserir Posição</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_acessarPosicao">
+       <property name="text">
+        <string>Acessar Posição</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_retirarPosicao">
+       <property name="text">
+        <string>Retirar Posição</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -318,12 +365,25 @@
      <x>0</x>
      <y>0</y>
      <width>748</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_InputValor</tabstop>
+  <tabstop>lineEdit_OutputElementos</tabstop>
+  <tabstop>lineEdit_posicao</tabstop>
+  <tabstop>pushButton_InserirInicio</tabstop>
+  <tabstop>pushButton_inserirFinal</tabstop>
+  <tabstop>pushButton_AcessarInicio</tabstop>
+  <tabstop>pushButton_acessarFinal</tabstop>
+  <tabstop>pushButton_RetirarInicio</tabstop>
+  <tabstop>pushButton_retirarFinal</tabstop>
+  <tabstop>pushButton_acessarPosicao</tabstop>
+  <tabstop>saida</tabstop>
+ </tabstops>
  <resources>
   <include location="Icons.qrc"/>
   <include location="imagens.qrc"/>

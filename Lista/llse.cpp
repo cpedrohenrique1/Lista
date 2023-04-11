@@ -119,6 +119,91 @@ namespace Pedro
         return aux->getDado();
     }
 
+    int LLSE::retirarPosicao(int posicao)
+    {
+        if (estaVazia())
+        {
+            throw ("Nao eh possivel retirar, lista vazia - RetirarPosicao");
+        }
+        if (posicao < 0 || posicao > quantidadeElementos - 1)
+        {
+            throw QString("Posicao Invalida - RetirarPosicao");
+        }
+        if (posicao == 0)
+        {
+            return retirarInicio();
+        }
+        if (posicao == quantidadeElementos - 1)
+        {
+            return retirarFinal();
+        }
+        NO* aux = inicio;
+        for (int i = 0; i < posicao - 1; i++)
+        {
+            aux = aux->getProximo();
+        }
+        int valor = aux->getProximo()->getDado();
+        NO* del = aux->getProximo();
+        aux->setProximo(aux->getProximo()->getProximo());
+        delete del;
+        del = nullptr;
+        quantidadeElementos--;
+        return valor;
+    }
+
+    void LLSE::inserirPosicao(int posicao, int elemento)
+    {
+        if (posicao < 0 || posicao > quantidadeElementos)
+        {
+            throw QString("Posicao Invalida - IncluirPosicao");
+        }
+        if (posicao == 0)
+        {
+            inserirInicio(elemento);
+            return;
+        }
+        if (posicao == quantidadeElementos)
+        {
+            inserirFinal(elemento);
+            return;
+        }
+        NO* aux = inicio;
+        for (int i = 0; i < posicao - 1; i++)
+        {
+            aux = aux->getProximo();
+        }
+        NO* novo = new NO(elemento);
+        novo->setProximo(aux->getProximo());
+        aux->setProximo(novo);
+        quantidadeElementos++;
+    }
+
+    int LLSE::acessarPosicao(int posicao) const
+    {
+        if (estaVazia())
+        {
+            throw QString("Nao eh possivel acessar, lista vazia - AcessarPosicao");
+        }
+        if (posicao < 0 || posicao >= quantidadeElementos)
+        {
+            throw QString("Posicao invalida - AcessarPosicao");
+        }
+        if (posicao == 0)
+        {
+            return acessarInicio();
+        }
+        if (posicao == quantidadeElementos - 1)
+        {
+            return acessarFinal();
+        }
+        NO* aux = inicio;
+        for (int i = 0; i < posicao; i++)
+        {
+            aux = aux->getProximo();
+        }
+        return aux->getDado();
+    }
+
     int LLSE::getQuantidadeElementos() const
     {
         return quantidadeElementos;
