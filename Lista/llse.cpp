@@ -7,20 +7,16 @@ namespace Pedro
     }
     bool LLSE::estaVazia() const
     {
-        return (quantidadeElementos == 0);
+        return !((bool)quantidadeElementos);
     }
     void LLSE::inserirInicio(int elemento)
     {
         try
         {
             NO *aux = new NO(elemento);
-            quantidadeElementos++;
             aux->setProximo(inicio);
             inicio = aux;
-            if (aux == nullptr)
-            {
-                delete aux;
-            }
+            quantidadeElementos++;
         }
         catch (std::bad_alloc &erro)
         {
@@ -35,18 +31,16 @@ namespace Pedro
             if (estaVazia())
             {
                 inserirInicio(elemento);
+                return;
             }
-            else
+            NO *aux = new NO(elemento);
+            NO *penultimo = inicio;
+            for (int i = 0; i < quantidadeElementos - 1; i++)
             {
-                NO *aux = new NO(elemento);
-                NO *aux2 = inicio;
-                for (int i = 0; i < quantidadeElementos - 1; i++)
-                {
-                    aux2 = aux2->getProximo();
-                }
-                aux2->setProximo(aux);
-                quantidadeElementos++;
+                penultimo = penultimo->getProximo();
             }
+            penultimo->setProximo(aux);
+            quantidadeElementos++;
         }
         catch (std::bad_alloc &erro)
         {
@@ -61,8 +55,12 @@ namespace Pedro
             throw QString("Lista esta vazia - retirarInicio");
         }
         NO *aux = inicio;
-        inicio = aux->getProximo();
-        int valor = aux->getDado();
+        int valor = inicio->getDado();
+        inicio = inicio->getProximo();
+        if (inicio == nullptr)
+        {
+            delete inicio;
+        }
         delete aux;
         aux = nullptr;
         quantidadeElementos--;
@@ -80,21 +78,15 @@ namespace Pedro
         {
             aux = aux->getProximo();
         }
-        NO *aux2 = aux->getProximo();
-        if (aux2)
+        if (aux->getProximo() == nullptr)
         {
-            int valor = aux2->getDado();
-            delete aux2;
-            aux2 = nullptr;
-            aux->setProximo(nullptr);
-            quantidadeElementos--;
-            return valor;
-        }
-        else
-        {
-            delete aux2;
             return retirarInicio();
         }
+        int valor = aux->getProximo()->getDado();
+        NO *aux2 = aux->getProximo();
+        aux->setProximo(nullptr);
+        delete aux2;
+        return valor;
     }
 
     int LLSE::acessarInicio() const
@@ -103,7 +95,7 @@ namespace Pedro
         {
             throw QString("Lista esta vazia - acessarInicio");
         }
-        return (inicio->getDado());
+        return inicio->getDado();
     }
     int LLSE::acessarFinal() const
     {
@@ -125,7 +117,7 @@ namespace Pedro
         {
             throw ("Nao eh possivel retirar, lista vazia - RetirarPosicao");
         }
-        if (posicao < 0 || posicao > quantidadeElementos - 1)
+        if (posicao < 0 || posicao >= quantidadeElementos)
         {
             throw QString("Posicao Invalida - RetirarPosicao");
         }
@@ -210,24 +202,23 @@ namespace Pedro
     }
     QString LLSE::obterDadosLLSE() const
     {
-        NO *aux;
-        aux = inicio;
+        NO *aux = inicio;
         QString saida = "";
         for (int i = 0; i < quantidadeElementos; i++)
         {
-            if (i == quantidadeElementos - 1)
+            if (i == 0)
             {
                 saida += "|" + QString::number(aux->getDado()) + "|";
             }
             else
             {
-                saida += "|" + QString::number(aux->getDado()) + "| -> ";
+                saida += " -> |" + QString::number(aux->getDado()) + "|";
             }
             aux = aux->getProximo();
         }
         if (estaVazia())
         {
-            saida = "(Lista esta vazia)";
+            return "(lista esta vazia)";
         }
         return saida;
     }
@@ -248,7 +239,11 @@ namespace Pedro
                 indice = i+1;
             }
             aux = aux->getProximo();
+            if (aux == nullptr)
+            {
+                inserirPosicao(indice, elemento);
+                return;
+            }
         }
-        inserirPosicao(indice, elemento);
     }
 }
