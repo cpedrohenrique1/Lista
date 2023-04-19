@@ -231,4 +231,24 @@ namespace Pedro
         }
         return saida;
     }
+
+    void LLSE::inserirOrdenado(int elemento)
+    {
+        if (estaVazia())
+        {
+            inserirInicio(elemento);
+            return;
+        }
+        int indice = 0;
+        NO* aux = inicio;
+        for (int i = 0; i < quantidadeElementos; i++)
+        {
+            if (aux->getDado() <= elemento)
+            {
+                indice = i+1;
+            }
+            aux = aux->getProximo();
+        }
+        inserirPosicao(indice, elemento);
+    }
 }

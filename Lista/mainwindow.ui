@@ -30,8 +30,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>120</y>
+      <x>180</x>
+      <y>170</y>
       <width>191</width>
       <height>27</height>
      </rect>
@@ -82,9 +82,9 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>20</y>
+      <y>0</y>
       <width>561</width>
-      <height>98</height>
+      <height>119</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -102,47 +102,68 @@
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_InserirInicio">
-         <property name="whatsThis">
-          <string/>
-         </property>
-         <property name="accessibleName">
-          <string/>
-         </property>
-         <property name="accessibleDescription">
-          <string/>
-         </property>
-         <property name="text">
-          <string>Inserir Inicio</string>
-         </property>
-         <property name="icon">
-          <iconset resource="Icons.qrc">
-           <normaloff>:/imgs/Icons/insert.png</normaloff>:/imgs/Icons/insert.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_inserirFinal">
-         <property name="text">
-          <string>Inserir Final</string>
-         </property>
-         <property name="icon">
-          <iconset resource="Icons.qrc">
-           <normaloff>:/imgs/Icons/insert.png</normaloff>:/imgs/Icons/insert.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QPushButton" name="pushButton_InserirInicio">
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="accessibleName">
+            <string/>
+           </property>
+           <property name="accessibleDescription">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Inserir Inicio</string>
+           </property>
+           <property name="icon">
+            <iconset resource="Icons.qrc">
+             <normaloff>:/imgs/Icons/insert.png</normaloff>:/imgs/Icons/insert.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_inserirFinal">
+           <property name="text">
+            <string>Inserir Final</string>
+           </property>
+           <property name="icon">
+            <iconset resource="Icons.qrc">
+             <normaloff>:/imgs/Icons/insert.png</normaloff>:/imgs/Icons/insert.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_inserirOrdenado">
+           <property name="text">
+            <string>Inserir Ordenado</string>
+           </property>
+           <property name="icon">
+            <iconset resource="Icons.qrc">
+             <normaloff>:/imgs/Icons/insert.png</normaloff>:/imgs/Icons/insert.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -274,7 +295,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>150</y>
+      <y>200</y>
       <width>381</width>
       <height>27</height>
      </rect>
@@ -317,7 +338,7 @@
       <x>510</x>
       <y>120</y>
       <width>236</width>
-      <height>113</height>
+      <height>122</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -340,6 +361,16 @@
        <property name="text">
         <string>Inserir Posição</string>
        </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/imgs/Icons/insert.png</normaloff>:/imgs/Icons/insert.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
       </widget>
      </item>
      <item>
@@ -347,12 +378,32 @@
        <property name="text">
         <string>Acessar Posição</string>
        </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/imgs/Icons/thumbMouse.jpg</normaloff>:/imgs/Icons/thumbMouse.jpg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_retirarPosicao">
        <property name="text">
         <string>Retirar Posição</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icons.qrc">
+         <normaloff>:/imgs/Icons/retirar.png</normaloff>:/imgs/Icons/retirar.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -375,8 +426,6 @@
   <tabstop>lineEdit_InputValor</tabstop>
   <tabstop>lineEdit_OutputElementos</tabstop>
   <tabstop>lineEdit_posicao</tabstop>
-  <tabstop>pushButton_InserirInicio</tabstop>
-  <tabstop>pushButton_inserirFinal</tabstop>
   <tabstop>pushButton_AcessarInicio</tabstop>
   <tabstop>pushButton_acessarFinal</tabstop>
   <tabstop>pushButton_RetirarInicio</tabstop>
