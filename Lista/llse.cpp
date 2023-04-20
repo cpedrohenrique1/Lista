@@ -84,8 +84,9 @@ namespace Pedro
         }
         int valor = aux->getProximo()->getDado();
         NO *aux2 = aux->getProximo();
-        aux->setProximo(nullptr);
         delete aux2;
+        aux->setProximo(nullptr);
+        quantidadeElementos--;
         return valor;
     }
 
